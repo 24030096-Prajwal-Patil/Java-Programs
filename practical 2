@@ -1,0 +1,75 @@
+Code:
+1) abstract class Employee { protected String name; protected int employeeId;
+	public Employee(String name, int employeeId) { this.name = name;
+this.employeeId = employeeId;
+}
+	public void displayDetails() { System.out.println("Name: " + name); System.out.println("Employee ID: " + employeeId);
+}
+}
+	class FTE extends Employee { private double salary;
+	public FTE(String name, int employeeId, double salary) {
+ 
+	super(name, employeeId);
+this.salary = salary;
+}
+@Override
+public void displayDetails() {
+System.out.println("--- Full-Time Employee ---"); super.displayDetails(); // call base class method System.out.println("Salary: " + salary); System.out.println();
+}
+}
+class PTE extends Employee { private double hourlyRate; private int hoursWorked;
+public PTE(String name, int employeeId, double hourlyRate, int hoursWorked) {
+super(name, employeeId); this.hourlyRate = hourlyRate; this.hoursWorked = hoursWorked;
+}
+@Override
+public void displayDetails() {
+System.out.println("--- Part-Time Employee ---"); super.displayDetails(); System.out.println("Hourly Rate: " + hourlyRate);
+System.out.println("Hours Worked: " + hoursWorked);
+System.out.println("Total Pay: " + (hourlyRate * hoursWorked));
+System.out.println();
+}
+}
+public class EmployeeDemo {
+public static void main(String[] args) { Employee[] employees = {
+new FTE("Mithilesh", 101, 60000),
+new PTE("Nikhil", 102, 500, 20),
+new FTE("Harshal", 103, 80000),
+new PTE("Vedant", 104, 450, 15)
+};
+for (Employee emp : employees) { emp.displayDetails();
+}
+}
+}
+2) abstract class PaymentMethod {
+public abstract void processPayment(double amount);
+}
+ 
+	class CCP extends PaymentMethod { @Override
+public void processPayment(double amount) { System.out.println("Processing credit card payment of ₹" +
+amount);
+System.out.println("Verifying credit card details..."); System.out.println("Payment Successful!\n");
+}
+}
+class DCP extends PaymentMethod { @Override
+public void processPayment(double amount) { System.out.println("Processing debit card payment of ₹" +
+amount);
+System.out.println("Checking account balance..."); System.out.println("Payment Successful!\n");
+}
+}
+class DWP extends PaymentMethod { @Override
+public void processPayment(double amount) { System.out.println("Processing digital wallet payment of ₹" +
+amount);
+System.out.println("Authenticating wallet ID..."); System.out.println("Payment Successful!\n");
+}
+}
+public class PaymentDemo {
+// Method accepts any payment type and processes it (polymorphism)
+public static void makePayment(PaymentMethod method, double amount) {
+method.processPayment(amount);
+}
+public static void main(String[] args) { PaymentMethod credit = new CCP(); PaymentMethod debit = new DCP(); PaymentMethod wallet = new DWP();
+makePayment(credit, 1500.00);
+makePayment(debit, 2300.50);
+makePayment(wallet, 999.99);
+}
+}

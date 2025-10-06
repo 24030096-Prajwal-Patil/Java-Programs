@@ -1,0 +1,101 @@
+import java.io.*;
+import java.util.*;
+import java.nio.file.*;
+import java.nio.file.attribute.*;
+import java.util.stream.*;
+
+public class FileHandlingPractice {
+    public static void main(String[] args) throws IOException {
+        // Task 1: Append text to a file
+        appendTextToFile("sample.txt", "This is the appended text.");
+
+        // Task 2: Write data using DataOutputStream
+        writeUsingDataOutputStream("data.bin", "Hello, world!");
+
+        // Task 3: Copy content from one file to another
+        copyFileContent("source.txt", "destination.txt");
+
+        // Task 4: Get attributes of a file
+        getFileAttributes("sample.txt");
+
+        // Task 5: Read student data from CSV, process and display output
+        processStudentData("student.csv");
+    }
+
+    // Task 1: Append text to a file
+    public static void appendTextToFile(String fileName, String text) {
+        try (FileWriter writer = new FileWriter(fileName, true)) {
+            writer.write(text + "\n");
+            System.out.println("Text appended to " + fileName);
+        } catch (IOException e) {
+            System.out.println("An error occurred while appending text.");
+            e.printStackTrace();
+        }
+    }
+
+    // Task 2: Write data using DataOutputStream
+    public static void writeUsingDataOutputStream(String fileName, String data) {
+        try (DataOutputStream dos = new DataOutputStream(new FileOutputStream(fileName))) {
+            byte[] dataBytes = data.getBytes();
+            dos.writeInt(dataBytes.length);  // Write the length of the string
+            dos.write(dataBytes);  // Write the string as bytes
+            System.out.println("Data written to " + fileName + ". Number of bytes: " + dataBytes.length);
+        } catch (IOException e) {
+            System.out.println("An error occurred while writing data.");
+            e.printStackTrace();
+        }
+    }
+
+    // Task 3: Copy content from one file to another
+    public static void copyFileContent(String sourceFile, String destinationFile) {
+        try {
+            Files.copy(Paths.get(sourceFile), Paths.get(destinationFile), StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("File content copied from " + sourceFile + " to " + destinationFile);
+        } catch (IOException e) {
+            System.out.println("An error occurred while copying file.");
+            e.printStackTrace();
+        }
+    }
+
+    // Task 4: Get attributes of a file
+    public static void getFileAttributes(String fileName) {
+        try {
+            Path path = Paths.get(fileName);
+            BasicFileAttributes attributes = Files.readAttributes(path, BasicFileAttributes.class);
+            System.out.println("File attributes of " + fileName + ":");
+            System.out.println("Creation time: " + attributes.creationTime());
+            System.out.println("Last modified time: " + attributes.lastModifiedTime());
+            System.out.println("Size: " + attributes.size() + " bytes");
+        } catch (IOException e) {
+            System.out.println("An error occurred while fetching file attributes.");
+            e.printStackTrace();
+        }
+    }
+
+    // Task 5: Process student data from CSV
+    public static void processStudentData(String csvFile) {
+        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
+            String line;
+            br.readLine();  // Skip the header line
+
+            // Process each student record
+            while ((line = br.readLine()) != null) {
+                String[] data = line.split(",");
+                String rollNumber = data[0];
+                String name = data[1];
+                int mathsMarks = Integer.parseInt(data[5]);
+                int physicsMarks = Integer.parseInt(data[6]);
+                int chemistryMarks = Integer.parseInt(data[7]);
+
+                // Calculate the total marks
+                int totalMarks = mathsMarks + physicsMarks + chemistryMarks;
+
+                // Display student information along with total marks
+                System.out.println("Roll Number: " + rollNumber + ", Name: " + name + ", Total Marks: " + totalMarks);
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred while processing the CSV file.");
+            e.printStackTrace();
+        }
+    }
+}

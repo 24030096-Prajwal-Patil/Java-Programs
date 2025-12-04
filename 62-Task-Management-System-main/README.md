@@ -20,7 +20,7 @@ To set up the project, follow these steps:
 1. Clone the repository to your local machine:
 
    ```
-   git clone https://github.com/VikasPoute/Task-Management-System.git
+   git clone https://github.com/24030096-Prajwal-Patil/Java-Programs/tree/main/62-Task-Management-System-main
    ```
 
 2. Navigate to the project directory:
@@ -87,24 +87,6 @@ Once the project is set up and running, you can use the Task Management System t
 - **Comments and Attachments**: Users can add comments and attach files to tasks for better collaboration.
 - **Reports and Statistics**: Users can generate reports and visualize task statistics.
 
-## Contributing
-
-Contributions are welcome! If you would like to contribute to this project, please follow these steps:
-
-1. Fork the repository on GitHub.
-2. Create a new branch for your feature or bug fix.
-3. Commit your changes and push them to your fork.
-4. Submit a pull request detailing your changes.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](vikaspoute@gmail.com) file for more information.
-
-## Contact
-
-If you have any questions or suggestions regarding this project, please contact the project owner at [vikaspoute@gmail.com]
-
----
 
 # Some Image of this project
 
@@ -122,6 +104,3 @@ If you have any questions or suggestions regarding this project, please contact 
 
 ## success
 ![Task Management System](images/sucess.jpg)
-
-
-Thank you for using the Task Management System! We hope it helps you stay organized and productive.

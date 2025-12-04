@@ -1,3 +1,9 @@
+# Name : Prajwal Patil
+# Roll Number : 62
+# Batch : A3
+# Branch : Computer Technology
+# Registration Number : 24030096
+
 # Bank-Management-System
 The Bank Management System allow you to perform various banking operation including managing accounts, fund transfers, and transactions.
 

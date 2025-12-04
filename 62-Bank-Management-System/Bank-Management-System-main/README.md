@@ -1,65 +1,127 @@
-# Bank-Management-System
-The Bank Management System allow you to perform various banking operation including managing accounts, fund transfers, and transactions.
+# Task-Management-System
 
-# Prerequisites
-- Basic knowledge of Java and the Spring Framework.
-- An ide is required for the project to run (e.g., `VSCode, IntelliJ IDEA, Eclipse`).
-- Postman for testing API endpoints.
-- A MySQL database.
+![Task Management System](images/home.jpg)
 
-# Features
-- **User Registration:** Users can register by providing their details, such as name, email, address, and phone number.
-- **PIN Management:** Users can create and update their PINs for added security.
-- **Cash Deposit and Withdrawal:** Users can deposit and withdraw cash from their accounts.
-- **Fund Transfer:** Users can transfer funds to other accounts within the system.
-- **Transaction History:** Users can view their transaction history.
+The Task Management System is a web application designed to help users efficiently manage their tasks and projects. This project consists of an Angular frontend and a Java Spring Boot backend, utilizing a MySQL database for data storage.
 
-# Technologies used
-- Java Spring Boot Framework
-- Spring Security for authentication
-- JWT (JSON Web Token) for secure API authentication
-- MySQL for data storage
-- Hibernate for object-relational mapping
-- Maven for project management
-- Postman for API testing
+## Prerequisites
 
-# Dependencies
-- Spring data jpa
-- Spring web
-- Spring start validation
-- Spring security
-- Spring devtools
-- Spring starter mail
-- Spring starter cache
-- Mysql connector
-- Jwt
-- Jackson
+Before running the project, please ensure that you have the following dependencies installed on your machine:
 
-# Installation and Setup
-- Fork repository: git clone:`https://github.com/24030096-Prajwal-Patil/Java-Programs/tree/main/62-Bank-Management-System/Bank-Management-System-main`
-- Configure MySQL: Set up a MySQL database and update the database credentials in application.properties.
-- Build and run the project: `mvn spring-boot:run`
+- [Node.js](https://nodejs.org) (version 12 or above)
+- [Angular CLI](https://angular.io/cli) (version 12 or above)
+- [Java Development Kit (JDK)](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) (version 8 or above)
+- [MySQL Server](https://dev.mysql.com/downloads/mysql/) (version 8 or above)
 
-# Database configuration
-- Add below properties in application.properties
-```
-server.port=8080
-spring.datasource.url=jdbc:mysql://localhost:3306/bankManagement
-spring.datasource.username=root
-spring.datasource.password=root
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-spring.jpa.database-platform = org.hibernate.dialect.MySQL5Dialect
-spring.jpa.generate-ddl=true
-spring.jpa.show-sql=true
-spring.jpa.hibernate.ddl-auto = update
-spring.main.allow-circular-references=true
-server.error.include-message=always
-# JWT Configuration
-jwt.secret=your-secret-key
-jwt.expiration=86400000 # Token expiration time in milliseconds (e.g., 24 hours)
-jwt.header=Authorization
-jwt.prefix=Bearer
-```
+## Installation
 
-# Error Handling
-- For error handling I am using global exception handling to throw exceptions.
+To set up the project, follow these steps:
+
+1. Clone the repository to your local machine:
+
+   ```
+   git clone https://github.com/VikasPoute/Task-Management-System.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```
+   cd Task-Management-System
+   ```
+
+3. Set up the frontend:
+
+   - Navigate to the frontend directory:
+
+     ```
+     cd frontend
+     ```
+
+   - Install the required dependencies using npm:
+
+     ```
+     npm install
+     ```
+
+4. Set up the backend:
+
+   - Navigate to the backend directory:
+
+     ```
+     cd ../backend
+     ```
+
+   - Import the project into your preferred Java IDE (e.g., [IntelliJ IDEA](https://www.jetbrains.com/idea/), [Eclipse](https://www.eclipse.org/ide/)).
+   - Resolve the dependencies specified in the `pom.xml` file using your IDE or [Maven](https://maven.apache.org/).
+
+5. Configure the database connection:
+
+   - Open the `backend/src/main/resources/application.properties` file.
+   - Modify the values in this file to match your MySQL database configuration (e.g., database name, username, password).
+
+6. Build the project:
+
+   - Build the Angular frontend:
+
+     ```
+     ng build
+     ```
+
+   - Build the Java Spring Boot backend using your IDE or Maven.
+
+7. Run the project:
+
+   - Start the Java Spring Boot backend server using your IDE or Maven.
+   - The frontend will be automatically served by the backend server.
+
+8. Open a web browser and visit `http://localhost:8080` to access the Task Management System.
+
+## Usage
+
+Once the project is set up and running, you can use the Task Management System to manage your tasks and projects. Some key features of the application include:
+
+- **User Registration and Login**: Users can register for a new account or log in to an existing account.
+- **Task Creation and Assignment**: Users can create new tasks and assign them to themselves or other users.
+- **Task Tracking**: Users can update the status, progress, and due dates of tasks.
+- **Task Prioritization**: Users can prioritize tasks based on urgency and importance.
+- **Comments and Attachments**: Users can add comments and attach files to tasks for better collaboration.
+- **Reports and Statistics**: Users can generate reports and visualize task statistics.
+
+## Contributing
+
+Contributions are welcome! If you would like to contribute to this project, please follow these steps:
+
+1. Fork the repository on GitHub.
+2. Create a new branch for your feature or bug fix.
+3. Commit your changes and push them to your fork.
+4. Submit a pull request detailing your changes.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](vikaspoute@gmail.com) file for more information.
+
+## Contact
+
+If you have any questions or suggestions regarding this project, please contact the project owner at [vikaspoute@gmail.com]
+
+---
+
+# Some Image of this project
+
+## Login
+![Task Management System](images/login.jpg)
+
+## Registration
+![Task Management System](images/register.jpg)
+
+## dashboard
+![Task Management System](images/dashboard.jpg)
+
+## configuration 
+![Task Management System](images/delete%20confirmation.jpg)
+
+## success
+![Task Management System](images/sucess.jpg)
+
+
+Thank you for using the Task Management System! We hope it helps you stay organized and productive.
